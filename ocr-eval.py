@@ -30,7 +30,7 @@ def process_gold(gold_path, tesseract_five_path) -> tuple[list[str], list[str]]:
 def calc_doctr(image_path) -> str:
     """calculating the doctr result for an image, matching the style of the gold, so newlines are with \n"""
     single_img_doc = DocumentFile.from_images(image_path)
-
+    model = ocr_predictor(pretrained=True)
     result = model(single_img_doc)
 
     json_output = result.export()
@@ -69,9 +69,19 @@ def calc_cer(gold_output, doctr_output, tesseract_output) -> tuple[int, int]:
 
     return doctr_results, tesseract_results
 
+
+def output_as_file(doctr_outputs, tesseract_outputs):
+    """Outputs the tesseract4 and doctr outputs as a file"""
+    # write a file for the tessearct4
+    with open("tesseract4_and_doctr_outputs/tesseract4.txt", "w") as tesseractf:
+        tesseractf.write(str(tesseract_outputs))
+    
+    with open("tesseract4_and_doctr_outputs/doctr.txt", "w") as doctrf:
+        doctrf.write(str(doctr_outputs))
+
+
 def main_tests(images, gold_outputs):
     """running and logging the doctr and tesseract4 tests"""
-
     # run the doctr tests
     print("loading doctr...")
     model = ocr_predictor(pretrained=True)
@@ -88,11 +98,15 @@ def main_tests(images, gold_outputs):
     print(f"doctr_results: {doctr_results}")
     print(f"tesseract4_results: {tesseract_results}")
 
+    # put the outputs in a file
+    print("outputting doctr and tesseract4 results into file output")
+    output_as_file(doctr_outputs, tesseract_outputs)
+
 def tesseract_five_test(correct_order, tesseract_five_path):
     """running and logging the tesseract5 test"""
 
     print("processing tesseract5")
-    tesseract_outputs = process_tesseract_five(correct_order, tesseract_five_path)
+    tesseract_outputs = process_tesseract_five(correct_order)
     print(f"outputs: {tesseract_outputs}")
     print(f"gold outputs: {gold_outputs}")
     print(f"tesseract5_results: {cer(gold_outputs, tesseract_outputs)}")
@@ -112,7 +126,7 @@ if __name__ == "__main__":
     images = [os.path.join(image_dir, image) for image in images]
 
     # main tests
-    main_tests(images, gold_outputs)
+    # main_tests(images, gold_outputs)
 
     # calculating tesseract5
     tesseract_five_test(correct_order, tesseract_five_path)
