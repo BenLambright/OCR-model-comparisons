@@ -29,7 +29,7 @@ We used CER from the `jiwer` package to test the predictions of each model outpu
 
 | tesseract4 | tesseract5 | doctr   |
 |------------|------------|---------|
-| 35.4       | 18.0       | 9.61    |
+| 35.4       | 18.5       | 9.61    |
 
 ### Current Limitations with CLAMS Apps
 While tesseract5 clearly performs better thant tesseract4, it is currently not supported by the CLAMS Apps. Given this performance difference, the next step will likely be updating the [tesseract](https://github.com/clamsproject/app-tesseractocr-wrapper/tree/main) CLAMS app.
