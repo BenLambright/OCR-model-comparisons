@@ -1,0 +1,8 @@
+STATELINE
+
+Oirecter= Taibot
+Record Oate> 2@ Cet 98a
+Air Oate= 22 Cet 98d
+Air Time= 1630
+Program: no. TICS 30S
+Tage no: TT 1986

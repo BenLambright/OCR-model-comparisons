@@ -1,0 +1,7 @@
+WPBT
+MASTER
+DECOR
+
+DWDM #108
+t.r.t: 27:28
+Tracks 1&2 Mixed
