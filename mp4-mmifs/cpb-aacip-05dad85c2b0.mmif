@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "mmif": "http://mmif.clams.ai/1.0.5"
+  },
+  "documents": [
+    {
+      "@type": "http://mmif.clams.ai/vocabulary/VideoDocument/v1",
+      "properties": {
+        "mime": "video",
+        "id": "d1",
+        "location": "file:///home/blambright/swt-ocr-pipeline/swt/source-media/cpb-aacip-05dad85c2b0.mp4"
+      }
+    }
+  ],
+  "views": []
+}

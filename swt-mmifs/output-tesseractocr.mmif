@@ -1,0 +1,27 @@
+Invalid input data. See below for validation error.
+
+['B', 'S', 'I', 'C', 'R', 'M', 'O', 'W', 'N', 'Y', 'U', 'K', 'L', 'G', 'F', 'E', 'T', 'P', '-'] is not of type 'string'
+
+Failed validating 'type' in schema['properties']['views']['items']['properties']['metadata']['properties']['contains']['patternProperties']['^https?://']['patternProperties']['.+']:
+    {'type': 'string'}
+
+On instance['views'][0]['metadata']['contains']['http://mmif.clams.ai/vocabulary/TimePoint/v4']['labelset']:
+    ['B',
+     'S',
+     'I',
+     'C',
+     'R',
+     'M',
+     'O',
+     'W',
+     'N',
+     'Y',
+     'U',
+     'K',
+     'L',
+     'G',
+     'F',
+     'E',
+     'T',
+     'P',
+     '-']
